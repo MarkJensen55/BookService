@@ -11,5 +11,8 @@ namespace BookService.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-    }
+
+        // add a circular reference as trial & removed again
+        //public ICollection<Book> Book { get; set; }
+     }
 }
