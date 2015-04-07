@@ -20,8 +20,8 @@ namespace BookService.Controllers
         // GET: api/Books
         public IQueryable<Book> GetBooks()
         {
-            // extend to get author name immediately
-            return db.Books.Include(b => b.Author);
+            // extend to get author name immediately & now remove extent
+            return db.Books; //.Include(b => b.Author);
         }
 
         // GET: api/Books/5

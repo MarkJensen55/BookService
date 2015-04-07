@@ -17,7 +17,7 @@ namespace BookService.Models
 
         // Foreign Key
         public int AuthorId { get; set; }
-        // navigation property
-        public Author Author { get; set; }
+        // navigation property - changed to virtual
+        public virtual Author Author { get; set; }
     }
 }
