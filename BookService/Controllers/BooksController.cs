@@ -108,6 +108,22 @@ namespace BookService.Controllers
         }
 
         // POST: api/Books
+
+        //[ResponseType(typeof(Book))]
+        //public async Task<IHttpActionResult> PostBook(Book book)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    db.Books.Add(book);
+        //    await db.SaveChangesAsync();
+
+        //    return CreatedAtRoute("DefaultApi", new { id = book.Id }, book);
+        //}
+
+        // replace with dto
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> PostBook(Book book)
         {
@@ -119,7 +135,16 @@ namespace BookService.Controllers
             db.Books.Add(book);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = book.Id }, book);
+            db.Entry(book).Reference(x => x.Author).Load();
+
+            var dto = new BookDetailDTO()
+            {
+                Id = book.Id,
+                Title = book.Title,
+                AuthorName = book.Author.Name
+            };
+
+            return CreatedAtRoute("DefaultApi", new { id = book.id }, dto);
         }
 
         // DELETE: api/Books/5
