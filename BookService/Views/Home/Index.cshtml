@@ -24,6 +24,9 @@
         <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
     </div>
 
+
+    <!-- ko if:detail() -->
+
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -38,6 +41,8 @@
             </table>
         </div>
     </div>
+
+    <!-- /ko -->
 
     <div class="col-md-4">
         <!-- add new still to do-->
