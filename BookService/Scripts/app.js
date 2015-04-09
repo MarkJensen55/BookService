@@ -1,6 +1,6 @@
 ﻿var ViewModel = function() {
     var self = this;
-    self.books = ko.obervableArray();
+    self.books = ko.observableArray();
 
     self.error = ko.observable();
 
