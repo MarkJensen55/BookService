@@ -29,7 +29,7 @@
             Genre: self.newBook.Genre(),
             Price: self.newBook.Price(),
             Title: self.newBook.Title(),
-            Year: self.newBook.Title()
+            Year: self.newBook.Year()
         };
 
         ajaxHelper(booksUri, 'POST', book).done(function (item) {
@@ -64,8 +64,9 @@
 
     // fetch the initial data
     getAllBooks();
+    getAuthors();
 
 };
-getAuthors();
+
 
 ko.applyBindings(new ViewModel());
