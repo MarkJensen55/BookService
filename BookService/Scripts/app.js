@@ -36,12 +36,10 @@
             self.books.push(item);
         });
 
-        
         self.newBook.Genre("");
         self.newBook.Price("");
         self.newBook.Title("");
         self.newBook.Year("");
-
     }
 
     function ajaxHelper(uri,method,data){
